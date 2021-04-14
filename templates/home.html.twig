@@ -1,0 +1,95 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <div class="jumbotron mt-5">
+            <h1 class="display-3 text-center mb-5">{{welcoming}}</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+            <hr class="my-4">
+            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+            <p class="lead mt-5">
+                <a class="btn btn-primary btn-lg" href="#" role="button">Voir nos annonces</a>
+            </p>
+        </div>
+        <h3 class="mb-5">Nos appartements stars</h3>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="card bg-secondary mb-3">
+                    <div class="card-header text-center">
+                        3 chambres <strong>100&euro; / nuit</strong><br>
+                        <small>Pas encore note</small>
+                    </div>
+                    <img src="imgs/log1.jpg" alt="log1" class="img-loge" srcset="imgs/log1.jpg 2x">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Appartement de ouuf</h4>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam adipisci earum voluptas quod odio esse hic itaque impedit explicabo ratione!
+                        </p>
+                        <a href="" class="btn btn-primary btn-lg btn-block">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-secondary mb-3">
+                    <div class="card-header text-center">
+                        3 chambres <strong>100&euro; / nuit</strong><br>
+                        <small>Pas encore note</small>
+                    </div>
+                    <img src="imgs/log2.jpg" alt="log1" class="img-loge" srcset="imgs/log2.jpg 2x">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Appartement de ouuf</h4>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam adipisci earum voluptas quod odio esse hic itaque impedit explicabo ratione!
+                        </p>
+                        <a href="" class="btn btn-primary btn-lg btn-block">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-secondary mb-3">
+                    <div class="card-header text-center">
+                        3 chambres <strong>100&euro; / nuit</strong><br>
+                        <small>Pas encore note</small>
+                    </div>
+                    <img src="imgs/log3.jpg" alt="log1" class="img-loge" srcset="imgs/log3.jpg 2x">
+                    <div class="card-body">
+                        <h4 class="card-title text-center">Appartement de ouuf</h4>
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam adipisci earum voluptas quod odio esse hic itaque impedit explicabo ratione!
+                        </p>
+                        <a href="" class="btn btn-primary btn-lg btn-block">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="mb-5">Nos proprietaires stars</h3>
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <div class="card bg-card mb-3">
+                    <div class="card-body text-dark">
+                        <h4 class="card-title">Mikeajy Andriamihaja</h4>
+                        <hr>
+                        <div class="card-text">
+                            <img src="imgs/avatar2.jpg" alt="avatar1" class="avatar float-left mr-3">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, excepturi nulla odit repudiandae id ipsum.</p><hr>
+                            <a href="" class="btn btn-success float-right">En savoir plus!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card bg-card mb-3">
+                    <div class="card-body text-dark">
+                        <h4 class="card-title">Manatsoa Mihary</h4>
+                        <hr>
+                        <div class="card-text">
+                            <img src="imgs/avatar1.jpg" alt="avatar1" class="avatar float-left mr-3">
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis deleniti nihil eaque in, delectus consequatur.</p><hr>
+                            <a href="" class="btn btn-success float-right">En savoir plus!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

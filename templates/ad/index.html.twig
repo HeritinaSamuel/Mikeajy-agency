@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mikeajy immo annonces{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h4 class="my-4">Annonces des nos proprietaires</h4>
+    <div class="row">
+        {% for ad in ads %}
+            {% include "ad/_ad.html.twig" %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
