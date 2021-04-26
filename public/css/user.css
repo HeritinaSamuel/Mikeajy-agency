@@ -1,0 +1,14 @@
+/* usershow */
+.avatar-detail{
+    width: 40%;
+    height: 60%;
+    border: solid rgb(228, 106, 7);
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.avatar-mini{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

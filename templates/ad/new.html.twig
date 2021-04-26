@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="text-center">Ajout de nouveau annonce</h2>
+        {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-primary mt-2 mb-4">Creer la nouvelle annonce</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

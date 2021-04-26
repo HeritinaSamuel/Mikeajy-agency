@@ -3,20 +3,23 @@
 <div class="col-md-4">
     <div class="card bg-secondary mb-3">
         <div class="card-header text-center">
-            {{ ad.rooms }} chambres <strong>{{ ad.price }} &euro; / nuit</strong><br>
+            {{ ad.rooms }} chambres <strong>{{ ad.price | number_format(0, '.', ' ')}} Ar</strong><br>
             <small>Pas encore note</small>
         </div>
         <a href="{{ url }}">
-            <img src="{{ ad.coverImage }}" alt="log1" class="img-loge" srcset="{{ ad.coverImage }} 2x">
+            <img src="{{ asset('/uploads/coverimages/' ~ ad.coverImage) }}" alt="log1" class="img-loge">
         </a>
         <div class="card-body">
-            <h4 class="card-title text-center">
+            <h4 class="card-title text-center title-link">
                 <a href="{{ url }}">{{ ad.title }}</a>
             </h4>
             <p class="card-text">
                 {{ ad.introduction }}
             </p>
             <a href="{{ url }}" class="btn btn-primary btn-lg btn-block">En savoir plus</a>
+            {% if app.user and app.user == ad.author %}
+                <a href="{{ path('ads_edit', {'slug': ad.slug}) }}" class="btn btn-secondary">Modifier l'annonce</a>
+            {% endif %}
         </div>
     </div>
 </div>

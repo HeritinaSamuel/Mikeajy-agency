@@ -5,21 +5,26 @@
 {% endblock %}
 
 {% block body %}
-    <div class="ad-title" style="background-image: url({{  ad.coverImage }})">
+    <div class="ad-title" style="background-image: url({{  asset('/uploads/coverimages/' ~ ad.coverImage) }})">
         <div class="container">
             <h1>{{ad.title}}</h1>
-            <p>{{ad.introduction}}</p>
+            <h5>{{ad.introduction}}</h5>
             <p class="h2">
-                <strong>{{ad.rooms}} chambres</strong> pour <strong>{{ad.price | number_format(2, ',', ' ')}}&euro;</strong> par nuit
+                <strong>{{ad.rooms}} chambres</strong> pour <strong>{{ad.price | number_format(2, ',', ' ')}} Ar</strong>
             </p>
-            <a href="#" class="btn btn-primary">Réserver !</a>
+            <a href="{{ path('booking_create', {'slug': ad.slug}) }}" class="btn btn-info">Réserver !</a>
+            {% if app.user and app.user == ad.author %}
+            <a href="#" class="btn btn-secondary">Modifier l'annonce</a>
+
+            <a href="{{ path('ads_delete', {'slug': ad.slug})}}" class="btn btn-danger" onclick="return confirm(`Êtes vous sur de vouloir supprimer l'annonce : {{ad.title}} ?`)">Supprimer l'annonce</a>
+        {% endif %}
         </div>
     </div>
     <div class="container">
         <div class="row mt-4">
             <div class="col-md-8 mb-3">
                 {{ ad.content | raw}}
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <div id="carouselExampleIndicators" class="carousel slide mt-3" data-ride="carousel">
                     <ol class="carousel-indicators">
                         {% for image in ad.images %}
                             <li data-target="#carouselExampleIndicators" data-slide-to="{{ loop.index0 }}" class="{% if loop.first %}active{% endif %}"></li>
@@ -28,10 +33,9 @@
                     <div class="carousel-inner">
                         {% for image in ad.images %}
                             <div class="carousel-item {% if loop.first %}active{% endif %}">
-                                <img class="d-block w-100" src="{{ image.url }}" alt="First slide">
+                                <img class="d-block w-100" src="{{ asset('/uploads/images/' ~ image.nom) }}" alt="{{ ad.title }}">
                                 <div class="carousel-caption d-none d-md-block">
                                     <h4>{{ ad.title }}</h4>
-                                    <h6>{{ image.caption }}</h6>
                                 </div>
                             </div>
                         {% endfor %}
@@ -47,18 +51,21 @@
                 </div>
             </div>
             <div class="col">
+            {% set user = ad.author %}
                 <div class="row mb-3">
                     <div class="col-3">
-                        <img src="../imgs/avatar3.jpg" alt="avatar3" class="avatar-show">
+                        <a href="{{ path('user_show', {'slug': user.slug})}}">
+                            <img src="{{ asset('/uploads/avatars/' ~ user.avatar) }}" alt="{{ user.fullName }}" class="avatar-show">
+                        </a>
                     </div>
                     <div class="col">
-                        <h5>Randrianatoandro Mioty</h5>
-                        <span class="badge badge-primary">3 annonces</span>
+                        <a href="{{ path('user_show', {'slug': user.slug})}}" class="user-link">
+                            <h5>{{ user.fullName }}</h5>
+                        </a>
+                        <span class="badge badge-warning p-2">{{ user.ads | length }} annonces</span>
                     </div>
                 </div>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor tenetur quia et saepe quam, ex qui ad tempora delectus magnam!</p>
-                <p>Exercitationem ab quibusdam unde veniam iure laboriosam libero, dolorum sed voluptatum rem eius dolores, harum voluptates eum eveniet nobis tempora!</p>
-                <p>Est sunt repellat ea quaerat ex iure magni, magnam perferendis nostrum reiciendis. Voluptatum temporibus ullam vero magni odit nostrum beatae.</p>
+                <p>{{ user.description }}</p>
             </div>
         </div>
     </div>

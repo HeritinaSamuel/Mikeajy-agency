@@ -1,0 +1,11 @@
+/* ads page */
+.card .card-body .title-link a:hover{
+    list-style: none;
+    text-decoration: none;
+    color: rgb(170, 233, 212);
+}
+/* end ads page */
+
+.card .card-body .title-link a{
+    color: rgb(148, 158, 155);
+}
